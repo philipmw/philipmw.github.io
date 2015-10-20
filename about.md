@@ -4,8 +4,9 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Hello! I am Philip. I live and work in Seattle, with my wife Sue and my cat Ruby.
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+My skill in this life is software and technology.  My interests are good design,
+elegant programming languages, and properly applied statistics.
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+I also [photograph](http://sueandphilip.smugmug.com), scuba dive, and (soon) drive a Seattle trolleybus.
