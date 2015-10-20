@@ -4,7 +4,7 @@ title: Philip in Seattle
 description: >
   I am Philip. I live with my wife Sue in Seattle.
   Thanks for stopping by.
-baseurl: "/blog" # the subpath of your site, e.g. /blog/
+baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://philipmw.github.io"
 twitter_username: philip4g
 github_username:  philipmw
