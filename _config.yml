@@ -3,6 +3,7 @@ title: Philip in Seattle
 description: >
   This is Philip's blog. Thanks for stopping by.
 baseurl: "" # the subpath of your site, e.g. /blog/
+gravatar_hash: '577b0958320b7fccef0b13017933558f'
 url: "http://philipmw.github.io"
 twitter_username: philip4g
 github_username:  philipmw
