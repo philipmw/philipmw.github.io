@@ -9,13 +9,13 @@ The solution was not obvious, so I thought I'd blog about it, if only to grease 
 I write and maintain a lot of SQL for my team's data pipeline.
 For my latest endeavor I wrote SQL similar to this:
 
-```
+{% highlight sql %}
 select t1.interest,
        t1.item,
        (case t2.badge when null then 0 else 1 end) is_badged
 from t1
 left outer join t2 using (interest, item)
-```
+{% endhighlight %}
 
 My SQL syntax-checked, but the results were odd: every row was `is_badged`.
 
