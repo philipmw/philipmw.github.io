@@ -34,11 +34,16 @@ But if you are a data creator or collector, the deal sours as you accumulate dat
 
 The big cost factor is network egress.  Cloud providers tend to allow free incoming network traffic, but charge per gigabyte for traffic going from them to you.  In other words, backing up may be free, but every restore costs money.
 
+And with any public cloud option, you have to BYO-backup-software such as Arq, which may cost money.
+
 By the time you reach a terabyte of backups (which, when including file versioning, is effectively much less than a terabyte of latest data), only Amazon Glacier is even in the running.  With Glacier, you'd be pulling ahead as long as you never lose any data!  Restoring your data one time costs as much as two years of storage.  Beyond a terabyte, you better run screaming back to CrashPlan, begging them to take you back.
 
-Counterintuitively, CrashPlan's slick software, experience, and unlimited storage is _cheaper_ than a do-it-yourself backup on commodity cloud storage.  I... don't know what to say.  How do they make money?  The only thing I can make of it, they have many data lightweights.  Storage is cheaper, and they transfer less data.
+This tells me two things:
 
-*In summary, this is a rare time when doing-it-yourself may cost more than paying for a managed service.*
+1. CrashPlan must have a lot of _data lightweights_, subscribers who have little data.  (You don't need a lot of data for it to be important!)  Those customers subsidize the data hogs.
+2. For a company, in some cases it's cheaper to run their own data center than to outsource infrastructure to a public cloud like AWS.
+
+I hope you now have enough information to decide what's cheaper for your circumstance: managed backups or doing-it-yourself.
 
 Thanks for your attention.  Hug your backups tonight.
 
