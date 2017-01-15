@@ -16,6 +16,7 @@ If I am willing to get my hands dirty and use commodity cloud storage, I should 
 
 First, since AWS provides infrastructure as a service, it's entirely conceivable that CrashPlan is using S3 behind the scenes, with their value-add being a friendly user experience for maintaining data backups.
 [SmugMug](http://www.smugmug.com), the photo sharing business, works similarly: they [use S3 as the underlying commodity storage](https://aws.amazon.com/blogs/aws/amazon_s3_and_s/), add paid photo sharing on top of that, and charge a flat subscription fee for unlimited photos.
+Common sense says that as you walk down the value chain, you reduce costs.
 If CrashPlan uses S3, then me using S3 directly should lead to savings.
 
 Second, if CrashPlan supports backing up and restoring _unlimited amounts_ of data, their fixed price must be high enough to accommodate customers who store much more data than I do.
