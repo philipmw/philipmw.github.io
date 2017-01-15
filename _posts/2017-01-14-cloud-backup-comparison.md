@@ -3,21 +3,31 @@ layout: post
 title:  Cloud backup comparison
 date:   2017-01-14 19:00:00
 ---
-I've been using CrashPlan for over a year now.  I trusted CrashPlan enough to forego a physical backup when I was reinstalled Windows---for a while, there was _no_ copy of my data physically available to me.  CrashPlan had the only copy.  And, like a champ, CrashPlan gave me my data back just as advertised.  I couldn't be happier with their service!  And at $59/year, I consider it a very good value for the peace of mind.
+I've been using [CrashPlan](http://www.crashplan.com) for over a year now.
+I trusted CrashPlan enough to forego a physical backup when I was reinstalled Windows---for a while, there was _no_ copy of my data physically available to me.
+CrashPlan had the only copy.
+And, like a champ, CrashPlan gave me my data back just as advertised.
+I couldn't be happier with their service!
+And at $59/year, I consider it a very good value for the peace of mind.
 
-But I work at Amazon Web Services, the premier provider of cheap storage!  If I am willing to get my hands dirty and use commodity cloud storage, I should be able to save money, right?
+But I work at [Amazon Web Services](http://aws.amazon.com), the premier provider of cheap storage!
+AWS is one of several providers of Infrastructure-as-a-Service (IaaS).
+If I am willing to get my hands dirty and use commodity cloud storage, I should be able to save money, right?
 
-First, CrashPlan could be using S3 behind the scenes, with their value-add being a friendly user experience for maintaining data backups.  SmugMug, the photo sharing business, works similarly: they [use S3 as the underlying commodity storage](https://aws.amazon.com/blogs/aws/amazon_s3_and_s/), add paid photo sharing on top of that, and charge a flat subscription fee for unlimited photos.  If CrashPlan uses S3, then me using S3 directly should lead to savings.
+First, since AWS provides infrastructure as a service, it's entirely conceivable that CrashPlan is using S3 behind the scenes, with their value-add being a friendly user experience for maintaining data backups.
+[SmugMug](http://www.smugmug.com), the photo sharing business, works similarly: they [use S3 as the underlying commodity storage](https://aws.amazon.com/blogs/aws/amazon_s3_and_s/), add paid photo sharing on top of that, and charge a flat subscription fee for unlimited photos.
+If CrashPlan uses S3, then me using S3 directly should lead to savings.
 
 Second, if CrashPlan supports backing up and restoring _unlimited amounts_ of data, their fixed price must be high enough to accommodate customers who store much more data than I do.
 
-To replace the CrashPlan backup client, I'd use [Arq Backup](https://www.arqbackup.com/), a desktop app that backs up your data to one or more of various cloud providers, treating them as interchangeable, commodity storage.  Arq Backup costs $50 one time.  Beyond that, it'd be just the monthly cost charged by S3.
-
 I did the math.
 
-Yes, using a commodity storage provider can be cheaper---but not always!  The more data you store, or the more frequently you have to restore it, the more attractively priced CrashPlan is.
+Yes, using a commodity storage provider can be cheaper---but not always!
+The more data you store, or the more frequently you have to restore it, the more attractively priced CrashPlan is.
 
-I created a table comparing costs.  The table has two columns for each category: the cost of storage, and the cost of restoring your entire backup.  The cost of storage is monthly, whereas restoring your backup is one-time and hopefully rare.
+I created a table comparing costs between CrashPlan and IaaS providers.
+The table has two columns for each category: the cost of storage, and the cost of restoring your entire backup.
+The cost of storage is monthly, whereas restoring your backup is one-time and hopefully rare.
 
 |        | [CrashPlan](http://www.crashplan.com) | ↵ | [Amazon Glacier](https://aws.amazon.com/glacier/) | ↵ | [Amazon S3](https://aws.amazon.com/s3/) Infrequent Access | ↵ | [Google Coldline](https://cloud.google.com/storage/archival/) | ↵ | [Google Nearline](https://cloud.google.com/storage-nearline/) | ↵                  |
 | Stored | store/year | full restore event | store/year     | full restore event | store/year                  | full restore event | store/year     | full restore event | store/year       | full restore event |
@@ -32,24 +42,51 @@ If we have less than about 100 GB (or maybe 500 GB, if you're feeling lucky) of 
 
 But if you are a data creator or collector, the deal sours as you accumulate data.
 
-The big cost factor is network egress.  Cloud providers tend to allow free incoming network traffic, but charge per gigabyte for traffic going from them to you.  In other words, backing up may be free, but every restore costs money.
+The big cost factor is network egress.
+For cloud providers, storage and internet connectivity is their entire value proposition; they can't hide or average out these costs.
+They charge by the gigabyte for traffic going from them to you.
+Only incoming traffic may be free.
+*So, backing up is free, but every restore costs money.*
 
-And with any public cloud option, you have to BYO-backup-software such as Arq, which may cost money.
+By the time you reach a terabyte of backups (which, when including file versioning, is effectively much less than a terabyte of latest data), only Amazon Glacier is even in the running.
+With Glacier, you'd be pulling ahead as long as you never lose any data!
+Restoring your data one time costs as much as two years of storage.
 
-By the time you reach a terabyte of backups (which, when including file versioning, is effectively much less than a terabyte of latest data), only Amazon Glacier is even in the running.  With Glacier, you'd be pulling ahead as long as you never lose any data!  Restoring your data one time costs as much as two years of storage.  Beyond a terabyte, you better run screaming back to CrashPlan, begging them to take you back.
-
-This tells me two things:
+I can conclude that:
 
 1. CrashPlan must have a lot of _data lightweights_, subscribers who have little data.  (You don't need a lot of data for it to be important!)  Those customers subsidize the data hogs.
 2. For a company, in some cases it's cheaper to run their own data center than to outsource infrastructure to a public cloud like AWS.
 
-I hope you now have enough information to decide what's cheaper for your circumstance: managed backups or doing-it-yourself.
+Now let's turn from IaaS to providers of cloud storage to regular people, such as OneDrive and Dropbox.
+These services are not designed for backups, but rather act as an online folder that synchronizes files you put there.
+Also, because they're aimed at end-users rather than system administrators and developers, they tend to charge only a flat cost for a tier of data storage.
+To make these services support backups, we need to add backup software such as [Arq Backup](http://www.arqbackup.com) for $50 one-time.
 
-Thanks for your attention.  Hug your backups tonight.
+Here, the table is simpler, because unlimited data traffic is included in all services of this type, so all restores are free and thus omitted.
+The costs here are annual.
+
+| Stored | [CrashPlan](http://www.crashplan.com) | [OneDrive](http://www.onedrive.com) | [Dropbox](http://www.dropbox.com) | [Google Drive](http://google.com/drive) |
+| -----: | --: | --: | --: |
+| 1 GB | $59 | $0 (up to 5 GB) | $0 | $0 |
+| 10 GB | $59 | $24 (up to 50 GB) | $99 | $0 |
+| 100 GB | $59 | $70 | $99 | $24 |
+| 1 TB | $59 | $70 | $99 | $120 |
+| 10 TB | $59 | n/a | n/a | $1,200 |
+
+Here, it's a closer call.
+But again, we have the pattern that as you store more data, everything either becomes prohibitively expensive or simply doesn't support a customer of your stature.
+Except CrashPlan.
+
+In summary, if you don't have much data, use anything other than CrashPlan.
+But if you have a lot, use nothing but.
+This is a rare case where doing-it-yourself ends up costing much more.
+
+Thanks for your attention.
+Hug your backups tonight.
 
 ------
 
-Now, if you care about how I came up with the table above, the methodology follows.
+Now, if you care about how I came up with the _CrashPlan vs. IaaS_ table, the methodology follows.
 
 I made two assumptions:
 
@@ -62,3 +99,9 @@ Then used this pricing information:
 * AWS S3 IA: US West region, $0.0125/GB for storage, $0.01 per 1,000 PUT requests, $0.001 per 1,000 GET requests, $0.09/GB for network egress with 1 GB/month free
 * Google Coldline: general pricing, $0.007/GB for storage, $0.05/GB for retrieval, $0.12/GB for network egress
 * Google Nearline: general region, $0.01/GB for storage, $0.01/GB for retrieval, $0.12/GB for network egress
+
+------
+
+Last note: These are my own thoughts and opinions, certainly not my employer's.
+I am getting no compensation from any company for writing this comparison.
+I wish I was.
