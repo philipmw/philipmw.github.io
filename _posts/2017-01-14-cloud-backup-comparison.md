@@ -82,8 +82,8 @@ Again, we have the pattern that as you store more data, some services either bec
 Eventually, only CrashPlan and Amazon Drive are left.
 Except CrashPlan and Amazon Drive.
 
-In summary, if you don't have much data, use a service that charges by storage tiers.
-If you have a lot of data, use pay the annual flat fee and go crazy with CrashPlan or Amazon Drive.
+In summary, if you don't have much data, use a service that charges by storage tiers, combining it with backup software like [Arq Backup](http://www.arqbackup.com).
+If you have a lot of data, pay the annual flat fee and enjoy the all-inclusive nature of CrashPlan or Amazon Drive.
 
 Lastly, using your own hardware locally, such as a high-capacity, magnetic hard drive, is much cheaper than any of these cloud backup options.
 But that has its own risks, such as dying the way of all hardware, being stolen, or burning in a fire.
