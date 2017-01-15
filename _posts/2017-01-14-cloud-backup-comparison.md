@@ -85,8 +85,8 @@ Except CrashPlan and Amazon Drive.
 In summary, if you don't have much data, use a service that charges by storage tiers.
 If you have a lot of data, use pay the annual flat fee and go crazy with CrashPlan or Amazon Drive.
 
-Lastly, using your own hardware locally, such as an external hard drive or BluRay writable discs, is much cheaper than any of these cloud backup options.
-But that has its own risks, such as dying like all hardware does, being stolen, or burning in a fire.
+Lastly, using your own hardware locally, such as a high-capacity, magnetic hard drive, is much cheaper than any of these cloud backup options.
+But that has its own risks, such as dying the way of all hardware, being stolen, or burning in a fire.
 Always have a cloud copy of your most important data.
 
 For me, the most interesting learning is that with cloud backups, doing-it-yourself can cost a lot more than just paying a professional.
