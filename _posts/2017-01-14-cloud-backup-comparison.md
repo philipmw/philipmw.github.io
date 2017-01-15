@@ -10,9 +10,12 @@ And, like a champ, CrashPlan gave me my data back just as advertised.
 I couldn't be happier with their service!
 And at $59/year, I consider it a very good value for the peace of mind.
 
-But I work at [Amazon Web Services](http://aws.amazon.com), the premier provider of cheap storage!
-AWS is one of several providers of Infrastructure-as-a-Service (IaaS).
-If I am willing to get my hands dirty and use commodity cloud storage, I should be able to save money, right?
+CrashPlan is in the same category of services as [BackBlaze](http://www.backblaze.com), [Carbonite](http://www.carbonite.com), and [Mozy](http://www.mozy.com): managed backups.
+The value prop is a flat, single price for unlimited data and free polished apps for various platforms.
+
+But I work at [Amazon Web Services](http://aws.amazon.com), the premier provider of cheap storage.
+AWS is one of several providers of Infrastructure-as-a-Service (IaaS), and storage is just one of many building blocks they provide.
+If I am willing to get my hands dirty with basic cloud infrastructure, I should be able to save money, right?
 
 First, since AWS provides infrastructure as a service, it's entirely conceivable that CrashPlan is using S3 behind the scenes, with their value-add being a friendly user experience for maintaining data backups.
 [SmugMug](http://www.smugmug.com), the photo sharing business, works similarly: they [use S3 as the underlying commodity storage](https://aws.amazon.com/blogs/aws/amazon_s3_and_s/), add paid photo sharing on top of that, and charge a flat subscription fee for unlimited photos.
@@ -66,25 +69,27 @@ To make these services support backups, we need to add backup software such as [
 Here, the table is simpler, because unlimited data traffic is included in all services of this type, so all restores are free and thus omitted.
 The costs here are annual.
 
-| Stored | [CrashPlan](http://www.crashplan.com) | [OneDrive](http://www.onedrive.com) | [Dropbox](http://www.dropbox.com) | [Google Drive](http://google.com/drive) |
-| -----: | --: | --: | --: |
-| 1 GB | $59 | $0 (up to 5 GB) | $0 | $0 |
-| 10 GB | $59 | $24 (up to 50 GB) | $99 | $0 |
-| 100 GB | $59 | $70 | $99 | $24 |
-| 1 TB | $59 | $70 | $99 | $120 |
-| 10 TB | $59 | n/a | n/a | $1,200 |
+| Stored | [CrashPlan](http://www.crashplan.com) | [OneDrive](http://www.onedrive.com) | [Dropbox](http://www.dropbox.com) | [Google Drive](http://google.com/drive) | [Amazon Drive](https://www.amazon.com/clouddrive/home) |
+| -----: | --: | --: | --: | --: |
+| 1 GB | $59 | $0 (up to 5 GB) | $0 | $0 | $60 |
+| 10 GB | $59 | $24 (up to 50 GB) | $99 | $0 | $60 |
+| 100 GB | $59 | $70 | $99 | $24 | $0 | $60 |
+| 1 TB | $59 | $70 | $99 | $120 | $60 |
+| 10 TB | $59 | n/a | n/a | $1,200 | $60 |
 
 Here, it's a closer call.
-But again, we have the pattern that as you store more data, everything either becomes prohibitively expensive or simply doesn't support a customer of your stature.
-Except CrashPlan.
+Again, we have the pattern that as you store more data, some services either becomes prohibitively expensive or simply don't support a customer of your stature.
+Eventually, only CrashPlan and Amazon Drive are left.
+Except CrashPlan and Amazon Drive.
 
-In summary, if you don't have much data, use _anything other than_ CrashPlan.
-But if you have a lot, use nothing but.
-This is a rare case where doing-it-yourself ends up costing much more.
+In summary, if you don't have much data, use a service that charges by storage tiers.
+If you have a lot of data, use pay the annual flat fee and go crazy with CrashPlan or Amazon Drive.
 
 Lastly, using your own hardware locally, such as an external hard drive or BluRay writable discs, is much cheaper than any of these cloud backup options.
 But that has its own risks, such as dying like all hardware does, being stolen, or burning in a fire.
 Always have a cloud copy of your most important data.
+
+For me, the most interesting learning is that with cloud backups, doing-it-yourself can cost a lot more than just paying a professional.
 
 Thanks for your attention.
 Hug your backups tonight.
