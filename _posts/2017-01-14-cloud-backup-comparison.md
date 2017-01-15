@@ -19,7 +19,7 @@ Yes, using a commodity storage provider can be cheaper---but not always!  The mo
 
 I created a table comparing costs.  The table has two columns for each category: the cost of storage, and the cost of restoring your entire backup.  The cost of storage is monthly, whereas restoring your backup is one-time and hopefully rare.
 
-|        | CrashPlan  | ↵                  | Amazon Glacier | ↵                 | Amazon S3 Infrequent Access | ↵                 | Google Farline | ↵                  | Google Nearline | ↵                  |
+|        | [CrashPlan](http://www.crashplan.com) | ↵ | [Amazon Glacier](https://aws.amazon.com/glacier/) | ↵ | [Amazon S3](https://aws.amazon.com/s3/) Infrequent Access | ↵ | [Google Coldline](https://cloud.google.com/storage/archival/) | ↵ | [Google Nearline](https://cloud.google.com/storage-nearline/) | ↵                  |
 | Stored | store/year | full restore event | store/year     | full restore event | store/year                  | full restore event | store/year     | full restore event | store/year       | full restore event |
 | -----: | --: | --: | --: | --: | --: | --: | --: | --: |
 | 1 GB   | $59 | $0 | $0 | $0 | $0 | $0 | $0 | $0 | $0 | $0 |
@@ -60,5 +60,5 @@ Then used this pricing information:
 
 * AWS Glacier: US West region, $0.004/GB for storage, $0.05 per 1,000 API requests, $0.01/GB for standard retrieval, $0.09/GB for network egress with 1 GB/month free
 * AWS S3 IA: US West region, $0.0125/GB for storage, $0.01 per 1,000 PUT requests, $0.001 per 1,000 GET requests, $0.09/GB for network egress with 1 GB/month free
-* Google Farline: general pricing, $0.007/GB for storage, $0.05/GB for retrieval, $0.12/GB for network egress
+* Google Coldline: general pricing, $0.007/GB for storage, $0.05/GB for retrieval, $0.12/GB for network egress
 * Google Nearline: general region, $0.01/GB for storage, $0.01/GB for retrieval, $0.12/GB for network egress
