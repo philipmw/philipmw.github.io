@@ -70,12 +70,12 @@ Here, the table is simpler, because unlimited data traffic is included in all se
 The costs here are annual.
 
 | Stored | [CrashPlan](http://www.crashplan.com) | [OneDrive](http://www.onedrive.com) | [Dropbox](http://www.dropbox.com) | [Google Drive](http://google.com/drive) | [Amazon Drive](https://www.amazon.com/clouddrive/home) |
-| -----: | --: | --: | --: | --: |
-| 1 GB | $59 | $0 (up to 5 GB) | $0 | $0 | $60 |
-| 10 GB | $59 | $24 (up to 50 GB) | $99 | $0 | $60 |
-| 100 GB | $59 | $70 | $99 | $24 | $0 | $60 |
-| 1 TB | $59 | $70 | $99 | $120 | $60 |
-| 10 TB | $59 | n/a | n/a | $1,200 | $60 |
+| -----: | --: | --: | --: | --: | --: |
+| 1 GB   | $59 | $0 (up to 5 GB) | $0 | $0 | $60 |
+| 10 GB  | $59 | $24 (up to 50 GB) | $99 | $0 | $60 |
+| 100 GB | $59 | $70 | $99 | $24 | $60 |
+| 1 TB   | $59 | $70 | $99 | $120 | $60 |
+| 10 TB  | $59 | n/a | n/a | $1,200 | $60 |
 
 Here, it's a closer call.
 Again, we have the pattern that as you store more data, some services either becomes prohibitively expensive or simply don't support a customer of your stature.
