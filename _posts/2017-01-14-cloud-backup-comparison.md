@@ -78,9 +78,13 @@ Here, it's a closer call.
 But again, we have the pattern that as you store more data, everything either becomes prohibitively expensive or simply doesn't support a customer of your stature.
 Except CrashPlan.
 
-In summary, if you don't have much data, use anything other than CrashPlan.
+In summary, if you don't have much data, use _anything other than_ CrashPlan.
 But if you have a lot, use nothing but.
 This is a rare case where doing-it-yourself ends up costing much more.
+
+Lastly, using your own hardware locally, such as an external hard drive or BluRay writable discs, is much cheaper than any of these cloud backup options.
+But that has its own risks, such as dying like all hardware does, being stolen, or burning in a fire.
+Always have a cloud copy of your most important data.
 
 Thanks for your attention.
 Hug your backups tonight.
