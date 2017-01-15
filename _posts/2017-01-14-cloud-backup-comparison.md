@@ -15,7 +15,7 @@ To replace the CrashPlan backup client, I'd use [Arq Backup](https://www.arqback
 
 I did the math.
 
-*I was shocked that CrashPlan is actually significantly cheaper than any cloud storage provider!*
+Yes, using a commodity storage provider can be cheaper---but not always!  The more data you store, or the more frequently you have to restore it, the more attractively priced CrashPlan is.
 
 I created a table comparing costs.  The table has two columns for each category: the cost of storage, and the cost of restoring your entire backup.  The cost of storage is monthly, whereas restoring your backup is one-time and hopefully rare.
 
@@ -30,11 +30,15 @@ I created a table comparing costs.  The table has two columns for each category:
 
 If we have less than about 100 GB (or maybe 500 GB, if you're feeling lucky) of data, using any cloud commodity storage is a good deal---even screaming good if you're a data lightweight.
 
-But the deal sours.  By the time you reach a terabyte of backups, only Amazon Glacier is even in the running.  With Glacier, you'd be pulling ahead as long as you never lose any data!  Restoring your data one time costs as much as two years of storage.  Beyond a terabyte, you better run screaming back to CrashPlan, begging them to take you back.
+But if you are a data creator or collector, the deal sours as you accumulate data.
+
+The big cost factor is network egress.  Cloud providers tend to allow free incoming network traffic, but charge per gigabyte for traffic going from them to you.  In other words, backing up may be free, but every restore costs money.
+
+By the time you reach a terabyte of backups (which, when including file versioning, is effectively much less than a terabyte of latest data), only Amazon Glacier is even in the running.  With Glacier, you'd be pulling ahead as long as you never lose any data!  Restoring your data one time costs as much as two years of storage.  Beyond a terabyte, you better run screaming back to CrashPlan, begging them to take you back.
 
 Counterintuitively, CrashPlan's slick software, experience, and unlimited storage is _cheaper_ than a do-it-yourself backup on commodity cloud storage.  I... don't know what to say.  How do they make money?  The only thing I can make of it, they have many data lightweights.  Storage is cheaper, and they transfer less data.
 
-*In summary, this is a rare time when doing-it-yourself costs more than paying for a managed service.*  Stay with CrashPlan and its ilk.
+*In summary, this is a rare time when doing-it-yourself may cost more than paying for a managed service.*
 
 Thanks for your attention.  Hug your backups tonight.
 
