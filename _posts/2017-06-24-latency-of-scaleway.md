@@ -8,13 +8,16 @@ Its backend is CPU-intensive, and I am writing it in Erlang since Erlang has gre
 But for concurrency to speed up your application, the hardware must have multiple cores---otherwise all your beautiful concurrency is fighting over that single CPU core.
 Unfortunately, all mainstream cloud providers' cheapest offering has just one CPU core.
 
-Enter [Scaleway](http://www.scaleway.com).  It's a unique cloud provider that offers a lineup of ARMv8 servers, starting at 2.99 euro per month for 4 CPU cores, 2 GB of RAM, and unlimited data transfer at 200 Mbps throughput!
+Enter [Scaleway](http://www.scaleway.com).  It's a unique cloud provider that offers a lineup of ARMv8 servers, starting at 2.99 euro ($3.35) per month for 4 CPU cores, 2 GB of RAM, and unlimited data transfer at 200 Mbps throughput!
 Compared to other cloud providers, that's a lot of hardware and network for a small amount of money!
 How much better will your app perform on Scaleway's cloud?
 
-Let's focus on two interesting aspects of the offer: four CPU cores and network latency.
+Lots of RAM and massive network throughput are undoubtedly great, and there's not much to say about these features.
+You probably already know how much RAM, network bandwidth, and monthly data transfer your app needs.
 
-Four cores offer more nominal parallelism than price-equivalent offerings from other cloud providers.
+But what about the four CPU cores?  That's intriguing.
+
+Four cores offer four times more parallelism than price-equivalent offerings from other cloud providers.
 This, in turn, suggests that your apps will run faster, and it encourages programming languages like Haskell and Erlang that have a high learning curve but dangle the possibility of massive speed benefits throughs safe and lightweight concurrency.
 
 But your application's performance depends on so much more than CPU parallelism!
@@ -25,7 +28,6 @@ That's a long way to travel for extra CPU cores!
 
 *So, how's Scaleway's latency?*
 There are no published numbers, so I researched it myself.
-(Jump to the "Conclusions" section if you're in a hurry.)
 
 ## Methodology
 
