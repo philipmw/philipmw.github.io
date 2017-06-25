@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Latency of Scaleway
-date:   2017-01-14 19:00:00
+date:   2017-06-24 22:05:00
 ---
 I am building a webapp.
 Its backend is CPU-intensive, and I am writing it in Erlang since Erlang has great support for parallelism.
