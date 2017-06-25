@@ -4,23 +4,26 @@ title:  Latency of Scaleway
 date:   2017-06-24 22:05:00
 ---
 I am building a webapp.
-Its backend is CPU-intensive, and I am writing it in Erlang since Erlang has great support for parallelism.
-But to take advantage of parallelism, the hardware must support it too, and all common cloud providers' cheapest offering has just one CPU core.
-All your beautiful concurrency is getting multiplexed on that single CPU core.
+Its backend is CPU-intensive, and I am writing it in Erlang since Erlang has great support for safe concurrency.
+But for concurrency to speed up your application, the hardware must have multiple cores---otherwise all your beautiful concurrency is fighting over that single CPU core.
+Unfortunately, all mainstream cloud providers' cheapest offering has just one CPU core.
 
-Enter [Scaleway](http://www.scaleway.com).  It's a unique cloud provider that offers a lineup of ARM servers, starting at 2.99 euro per month for an ARMv8 architecture with 4 CPU cores and 2 GB of RAM!
-That's a lot of hardware for a small amount of money!
+Enter [Scaleway](http://www.scaleway.com).  It's a unique cloud provider that offers a lineup of ARMv8 servers, starting at 2.99 euro per month for 4 CPU cores, 2 GB of RAM, and unlimited data transfer at 200 Mbps throughput!
+Compared to other cloud providers, that's a lot of hardware and network for a small amount of money!
+How much better will your app perform on Scaleway's cloud?
+
+Let's focus on two interesting aspects of the offer: four CPU cores and network latency.
 
 Four cores offer more nominal parallelism than price-equivalent offerings from other cloud providers.
-This, in turn, encourages fun programming languages like Haskell and Erlang that emphasize safe concurrency.
+This, in turn, suggests that your apps will run faster, and it encourages programming languages like Haskell and Erlang that emphasize safe concurrency.
 
-(Though your application's performance depends on so much more than concurrency and parallelism!  This is especially true for webapps.)
+But your application's performance depends on so much more than CPU parallelism!
+For webapps, network latency tends to eclipse any hardware performance differences.
 
-Now, the catch.
-Scaleway's data centers are outside of the U.S.---one is in Paris, and one's in Amsterdam.
-Four cores may improve my app's performance, but my use case is a webapp: latency is important to all users of any webapp.
+The problem with Scaleway is that its data centers are outside of the U.S.---one is in Paris, and one's in Amsterdam.
+That's a long way to travel for extra CPU cores!
 
-*So, how's the latency?*
+*So, how's Scaleway's latency?*
 There are no published numbers, so I researched it myself.
 (Jump to the "Conclusions" section if you're in a hurry.)
 
@@ -56,8 +59,8 @@ Latencies are expressed in this format: `round-trip min / **avg** / max / stddev
 From ∖ To                   | Scaleway's Amsterdam datacenter          | Scaleway's Paris data center
 --------------------------- | ---------------------------------------- | -------------------------------------
 my home (CondoInternet ISP) | 158.661 / **159.745** / 164.679 / 0.624 ms | 149.722 / **150.665** / 153.001 / 0.517 ms
-AWS us-west-2               | 167.070 / **167.881** / 173.808 / 1.335 ms | 165.074 / **166.083** / 174.366 / 2.173 ms
-AWS us-east-1               | 92.921 / **93.349** / 100.997 / 0.874 ms   | 93.430 / **93.969** / 104.279 / 1.626 ms
+AWS us-west-2 (Oregon)      | 167.070 / **167.881** / 173.808 / 1.335 ms | 165.074 / **166.083** / 174.366 / 2.173 ms
+AWS us-east-1 (N. Virginia) | 92.921 / **93.349** / 100.997 / 0.874 ms   | 93.430 / **93.969** / 104.279 / 1.626 ms
 
 ### MapLatency's results
 
@@ -89,7 +92,7 @@ AWS us-east-1 (N. Virginia)            | 61.404 / **62.763** / 72.916 / 2.102 ms
 
 If you are building a webapp for a U.S. audience, do them a favor and host it in the U.S.
 
-Scaleway's latency premium is on the order of 100 milliseconds, compared to AWS.
+Scaleway's latency penalty is on the order of 100 milliseconds, compared to AWS.
 
 Scaleway's latency is lower on the east coast compared to the west coast.
 
