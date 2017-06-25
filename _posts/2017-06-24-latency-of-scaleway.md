@@ -23,7 +23,7 @@ This, in turn, suggests that your apps will run faster, and it encourages progra
 But your application's performance depends on so much more than CPU parallelism!
 For webapps, network latency tends to eclipse any hardware performance differences.
 
-The problem with Scaleway is that its data centers are outside of the U.S.---one is in Paris, and one's in Amsterdam.
+The problem with Scaleway, from my U.S.-oriented perspective, is that its data centers are outside of the U.S.: one is in Paris, and one's in Amsterdam.
 That's a long way to travel for extra CPU cores!
 
 *So, how's Scaleway's latency?*
