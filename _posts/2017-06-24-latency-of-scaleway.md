@@ -53,7 +53,7 @@ This map summarizes the rest of this section:
 These are the result of the standard `ping` command, run with a count of 100.
 Latencies are expressed in this format: `round-trip min / **avg** / max / stddev`.
 
-From...                     | Scaleway's Amsterdam datacenter          | Scaleway's Paris data center
+From ∖ To                   | Scaleway's Amsterdam datacenter          | Scaleway's Paris data center
 --------------------------- | ---------------------------------------- | -------------------------------------
 my home (CondoInternet ISP) | 158.661 / **159.745** / 164.679 / 0.624 ms | 149.722 / **150.665** / 153.001 / 0.517 ms
 AWS us-west-2               | 167.070 / **167.881** / 173.808 / 1.335 ms | 165.074 / **166.083** / 174.366 / 2.173 ms
