@@ -15,7 +15,7 @@ How much better will your app perform on Scaleway's cloud?
 Let's focus on two interesting aspects of the offer: four CPU cores and network latency.
 
 Four cores offer more nominal parallelism than price-equivalent offerings from other cloud providers.
-This, in turn, suggests that your apps will run faster, and it encourages programming languages like Haskell and Erlang that emphasize safe concurrency.
+This, in turn, suggests that your apps will run faster, and it encourages programming languages like Haskell and Erlang that have a high learning curve but dangle the possibility of massive speed benefits throughs safe and lightweight concurrency.
 
 But your application's performance depends on so much more than CPU parallelism!
 For webapps, network latency tends to eclipse any hardware performance differences.
