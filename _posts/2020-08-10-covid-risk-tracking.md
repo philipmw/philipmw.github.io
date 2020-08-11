@@ -59,15 +59,13 @@ Now that each day has a rating, how do we combine it into a score?
 
 So we care only about the last two weeks.
 
-So, we could simply average the daily ratings from the last 2 weeks.
+We could simply average the daily ratings from the last 2 weeks.
 For example, if last week you gave each day 3 stars and this week you gave each day 2 stars, your risk score would be **2.5**.
 This gets us most of the way there.
 
 To do the multiplication easily, I use a spreadsheet.
 I am a big fan of _Apple Numbers_.
 I have it on both my phone and laptop, and my spreadsheets are shared between the two through iCloud.
-
-Let's return to how to calculate the risk score from your daily risk ratings.
 
 We know we can get most of the way there through simply averaging your ratings from the last two weeks.
 But we also know that what you did in the last 5 days matters a lot more than what you did 14 days ago.
@@ -98,11 +96,15 @@ I choose to go 15 days back, and "today" is the 0th day.
 The weights may seem arbitrary, but they have the property that they average to exactly 1.0.
 Hence, compared to a simple average, the weights do not change the magnitude of your risk score; they just rebalance the points.
 
+Now when I say that my current risk score is **1.7**, you know it means I averaged 1.7 stars over the last 15 days,
+for the weighted definition of averaged.
+
 ## planning your future
 
 Now you can answer questions like: how does my risk score change if I hang out with X tonight?
 
 ![adding a new score](/assets/2020-08-10%20playing%20with%20rating.png)
+
 But you can go beyond today.
 In the spreadsheet you can create days into the future, estimate your risk based on your planned activity,
 and forecast what your risk score will be.
