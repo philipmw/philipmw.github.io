@@ -4,7 +4,7 @@ title:  Managing my COVID risk
 date:   2020-08-10 21:00:00
 ---
 
-![chart of my risk score](/assets/2020-08-10 covid score graph.png)
+![chart of my risk score](/assets/2020-08-10%20covid%20score%20graph.png)
 
 Today my COVID risk score is **1.7**.
 
@@ -29,6 +29,8 @@ Then let the spreadsheet calculate a 2-week weighted average of those stars.
 
 The rating is somewhat subjective depending on your lifestyle.
 
+The best resource I've seen for judging your day is the [COVID-19 Activity Risk Index](https://www.covid19reopen.com/resources/covid-19-daily-activity-risk-index).
+
 Here's how I rate my days, as a young single person working from home:
 
 * I did not come in contact with anyone today and did not spend any time in public indoor spaces. **0 stars.**
@@ -45,7 +47,7 @@ At the end of your day, review what you did, then rate it honestly and consisten
 
 Here's what mine looks like:
 
-![chart of my daily ratings](/assets/2020-08-10 covid day ratings.png)
+![chart of my daily ratings](/assets/2020-08-10%20covid day%20ratings.png)
 
 ## risk score
 
@@ -100,6 +102,7 @@ Hence, compared to a simple average, the weights do not change the magnitude of 
 
 Now you can answer questions like: how does my risk score change if I hang out with X tonight?
 
+![adding a new score](/assets/2020-08-10%20playing%20with%20rating.png)
 But you can go beyond today.
 In the spreadsheet you can create days into the future, estimate your risk based on your planned activity,
 and forecast what your risk score will be.
