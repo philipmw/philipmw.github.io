@@ -4,9 +4,9 @@ title: About
 permalink: /about/
 ---
 
-Hello! I am Philip. I live and work in Seattle, with my wife Sue and my cat Ruby.
+Hello. This my little home (rented from GitHub) on the Internet.  Welcome!
 
-My skill in this life is software and technology.  My interests are good design,
-elegant programming languages, and properly applied statistics.
+I live and work in Seattle with my cat Ruby.
 
-I also [photograph](http://sueandphilip.smugmug.com), scuba dive, and (soon) drive a Seattle trolleybus.
+If you have comments about something you read here, please email me.
+
