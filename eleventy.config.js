@@ -8,6 +8,7 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("**/*.png", {
     mode: "html-relative",
   });
+  eleventyConfig.addPassthroughCopy("**/*.xsl");
 
   eleventyConfig.addPlugin(dirOutputPlugin);
 
@@ -33,7 +34,7 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPlugin(feedPlugin, {
     type: "atom", // or "rss", "json"
     outputPath: "/feed.xml",
-    stylesheet: "pretty-atom-feed.xsl",
+    stylesheet: "content/pretty-feed-v3.xsl",
     templateData: {
       eleventyNavigation: {
 	key: "Feed",
