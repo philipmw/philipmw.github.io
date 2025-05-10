@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <title>Philip in Seattle</title>
   <subtitle>This blog is about my life and things I find interesting.</subtitle>
-  <link href="https://philipmw.github.io/feed.xml" rel="self" />
+  <link href="https://philipmw.github.io/feed.atom" rel="self" />
   <link href="https://philipmw.github.io/" />
   <updated>2020-08-10T21:00:00Z</updated>
   <id>https://philipmw.github.io/</id>
