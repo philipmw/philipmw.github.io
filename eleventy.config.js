@@ -31,6 +31,7 @@ export default async function(eleventyConfig) {
     bundleHtmlContentFromSelector: "script",
   });
 
+  // https://www.11ty.dev/docs/plugins/rss/
   eleventyConfig.addPlugin(feedPlugin, {
     type: "atom", // or "rss", "json"
     outputPath: "/feed.xml",
@@ -44,6 +45,15 @@ export default async function(eleventyConfig) {
     collection: {
       name: "posts",
       limit: 10,
+    },
+    metadata: {
+      language: "en",
+      title: "Philip in Seattle",
+      subtitle: "This blog is about my life and things I find interesting.",
+      base: "https://philipmw.github.io",
+      author: {
+        name: "Philip",
+      },
     },
   });
 }
