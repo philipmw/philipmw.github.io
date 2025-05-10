@@ -1,10 +1,9 @@
 ---
-layout: post
 title:  Managing my COVID risk
 date:   2020-08-10 21:00:00
 ---
 
-![chart of my risk score](/assets/2020-08-10%20covid%20score%20graph.png)
+![chart of my risk score](score-graph.png)
 
 Today my COVID risk score is **1.7**.
 
@@ -47,7 +46,7 @@ At the end of your day, review what you did, then rate it honestly and consisten
 
 Here's what mine looks like:
 
-![chart of my daily ratings](/assets/2020-08-10%20covid day%20ratings.png)
+![chart of my daily ratings](day-ratings.png)
 
 ## risk score
 
@@ -103,7 +102,7 @@ for the weighted definition of averaged.
 
 Now you can answer questions like: how does my risk score change if I hang out with X tonight?
 
-![adding a new score](/assets/2020-08-10%20playing%20with%20rating.png)
+![adding a new score](playing-with-rating.png)
 
 But you can go beyond today.
 In the spreadsheet you can create days into the future, estimate your risk based on your planned activity,
@@ -123,6 +122,6 @@ to meet your goal score!
 Thanks for reading.
 I hope that this gives you the knowledge and tools to track your own risk score, if you buy into my methodology.
 
-As a reward for sticking with me, here is [an Apple Numbers spreadsheet that you can use as a template](/assets/2020-08-10%20covid%20spreadsheet.numbers).
+As a reward for sticking with me, here is [an Apple Numbers spreadsheet that you can use as a template](spreadsheet.numbers).
 
 I look forward to your feedback.
