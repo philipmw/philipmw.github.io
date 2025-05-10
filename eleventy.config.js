@@ -5,9 +5,10 @@ import pluginFilters from "./_config/filters.js";
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("**/*.png", {
+  eleventyConfig.addPassthroughCopy("content/blog/*/*.png", {
     mode: "html-relative",
   });
+  eleventyConfig.addPassthroughCopy("favicons/*");
   eleventyConfig.addPassthroughCopy("**/*.xsl");
 
   eleventyConfig.addPlugin(dirOutputPlugin);
