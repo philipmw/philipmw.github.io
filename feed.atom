@@ -4,16 +4,16 @@
   <subtitle>This blog is about my life and things I find interesting.</subtitle>
   <link href="https://philipmw.github.io/feed.atom" rel="self" />
   <link href="https://philipmw.github.io/" />
-  <updated>2025-10-01T00:00:00Z</updated>
+  <updated>2025-10-02T05:00:00Z</updated>
   <id>https://philipmw.github.io/</id>
   <author>
     <name>Philip</name>
   </author>
   <entry>
     <title>Run 8 on Linux</title>
-    <link href="https://philipmw.github.io/blog/2025/10/2025-10-run8-on-linux/" />
-    <updated>2025-10-01T00:00:00Z</updated>
-    <id>https://philipmw.github.io/blog/2025/10/2025-10-run8-on-linux/</id>
+    <link href="https://philipmw.github.io/blog/2025/10/run8-on-linux/" />
+    <updated>2025-10-02T05:00:00Z</updated>
+    <id>https://philipmw.github.io/blog/2025/10/run8-on-linux/</id>
     <content type="html">&lt;p&gt;As a child, my parents would take me on trips to neighboring towns on an &lt;a href=&quot;https://en.wikipedia.org/wiki/Elektrichka&quot;&gt;elektrichka&lt;/a&gt;, a commuter suburban electric train.
 We didn&#39;t have much of a purpose in these trips; my parents were just showing me a good time. I loved everything about those train rides. Going to the train station, smelling the railroad, buying tickets, boarding, looking out at the landscape, arriving at some random town. Then, reverse.&lt;/p&gt;
 &lt;p&gt;On special occasions, we&#39;d take a long-distance, overnight train. That was even more glorious---it was everything I liked about the commuter trains, but longer and with a sleepover!&lt;/p&gt;
@@ -28,7 +28,7 @@ I first tried to run it on my Mac via &lt;em&gt;VirtualBox&lt;/em&gt;, but the g
 &lt;p&gt;We can install the game on Linux using pure Wine:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ wine ~/Downloads/run8v3_install.exe
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/2025-10-run8-on-linux/installer.png&quot; alt=&quot;screenshot of Run8 installer&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/run8-on-linux/installer.png&quot; alt=&quot;screenshot of Run8 installer&quot;&gt;&lt;/p&gt;
 &lt;p&gt;The graphical installer ran to completion uneventfully. This installed the game onto the &amp;quot;Windows filesystem&amp;quot; at &lt;code&gt;~/.wine&lt;/code&gt;.
 Already, we have enough to run the game.
 But let&#39;s install the updates first.&lt;/p&gt;
@@ -82,25 +82,25 @@ The initial screen opens, where you select your scenario, but the game crashes o
 &lt;p&gt;But we have more tools in our arsenal ... let&#39;s move on to Lutris.&lt;/p&gt;
 &lt;h3&gt;Lutris&lt;/h3&gt;
 &lt;p&gt;I simply added the existing installation of &lt;em&gt;Run 8&lt;/em&gt; to &lt;em&gt;Lutris&lt;/em&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/2025-10-run8-on-linux/Lutris-game-options.png&quot; alt=&quot;Lutris game options&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/run8-on-linux/Lutris-game-options.png&quot; alt=&quot;Lutris game options&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Then, when I launch it inside Lutris, it runs!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/2025-10-run8-on-linux/Run8-full-screen-start.png&quot; alt=&quot;Run 8 full screen start&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/2025-10-run8-on-linux/Run8-full-screen-game--day-yard.png&quot; alt=&quot;Run 8 full screen game - day yard&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/run8-on-linux/Run8-full-screen-start.png&quot; alt=&quot;Run 8 full screen start&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/run8-on-linux/Run8-full-screen-game--day-yard.png&quot; alt=&quot;Run 8 full screen game - day yard&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;keyboard shortcuts - resolving conflict with KDE&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Run 8&lt;/em&gt; is a power user of key bindings, including a liberal use of function keys, Control, Alt, and Shift. Some of these conflict with Plasma&#39;s own key bindings, so some functionality in &lt;em&gt;Run 8&lt;/em&gt; is hard to access, such as Shift-F1 (Train Maker-Upper) and Shift-F12 (camera free fly). Ideally, we want to give &lt;em&gt;Run 8&lt;/em&gt; &lt;strong&gt;full&lt;/strong&gt; control of the keyboard. Here&#39;s how.&lt;/p&gt;
 &lt;p&gt;First, bring the game from full-screen into windowed mode by pressing F4.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/2025-10-run8-on-linux/Run8-windowed.png&quot; alt=&quot;Run 8 windowed&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/run8-on-linux/Run8-windowed.png&quot; alt=&quot;Run 8 windowed&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Second, go into KDE&#39;s &amp;quot;special application settings&amp;quot; menu from the dropdown:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/2025-10-run8-on-linux/KDE-special-application-settings-menu-dropdown.png&quot; alt=&quot;KDE special application settings menu dropdown&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/run8-on-linux/KDE-special-application-settings-menu-dropdown.png&quot; alt=&quot;KDE special application settings menu dropdown&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Third, ignore global shortcuts:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/2025-10-run8-on-linux/KDE-ignore-global-shortcuts.png&quot; alt=&quot;KDE ignore global shortcuts&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/run8-on-linux/KDE-ignore-global-shortcuts.png&quot; alt=&quot;KDE ignore global shortcuts&quot;&gt;&lt;/p&gt;
 &lt;p&gt;This gives &lt;em&gt;Run 8&lt;/em&gt; full control of the keyboard when the game is in focus (both full screen and windowed), so even the Super key will no longer interrupt the game.
 Now, once inside the game, the only ways out are (1) F4 to enter windowed mode, then use the cursor to focus on something else, or (2) go through the game&#39;s own Exit procedure.
 Meanwhile, all functionality that previously conflicted with KDE is now working, including Train Maker-Upper and flying.&lt;/p&gt;
 &lt;h2&gt;gameplay&lt;/h2&gt;
 &lt;p&gt;Both single player and multiplayer works. I spent an hour or two logged into the &lt;strong&gt;&lt;a href=&quot;https://www.highballrun8.com/&quot;&gt;Highball Run 8&lt;/a&gt;&lt;/strong&gt; multiplayer server.
 Here, I am looking at someone else&#39;s moving train.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/2025-10-run8-on-linux/Run8-full-screen-game--night-train-approaching.png&quot; alt=&quot;Run8 full screen game -- night train approaching&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/run8-on-linux/Run8-full-screen-game--night-train-approaching.png&quot; alt=&quot;Run8 full screen game -- night train approaching&quot;&gt;&lt;/p&gt;
 &lt;p&gt;The game is beautiful, and you can find many more screenshots across the various Run8 communities. I feel I am not doing the game justice with my couple of screenshots, but this article isn&#39;t intended to be a review of the game. I am here to help you set up &lt;em&gt;Run 8&lt;/em&gt; for yourself!&lt;/p&gt;
 &lt;p&gt;It feels very satisfying to be able to run this game on top of a fully open hardware and software stack. The laptop runs Dasharo firmware, Linux, Nixpkgs, Plasma, Wine, and Lutris -- all free and open source. The only closed-source component is the game itself.&lt;/p&gt;
 &lt;h2&gt;things that don&#39;t fully work&lt;/h2&gt;
@@ -115,7 +115,7 @@ Here, I am looking at someone else&#39;s moving train.&lt;/p&gt;
 &lt;p&gt;On the other hand, I am well aware how fragmented the Linux ecosystem is. Sometimes that&#39;s a feature, but often it&#39;s a hurdle to support and compatibility. The downside of advertising Linux compatibility is the risk of overpromising. There will certainly be Linux environments where &lt;em&gt;Run 8&lt;/em&gt; doesn&#39;t run. So, my next suggestion to Run 8 Studios is to offer the game installer for unrestricted download. Let prospective customers try to install and run the game on their system before committing to buy, as I am doing. It would also allow Linux distributions to participate in providing &lt;em&gt;Run 8&lt;/em&gt; to their users, which is already the case for a lot of proprietary, precompiled software.&lt;/p&gt;
 &lt;p&gt;Lastly, on the most personal and tangential note, I recognize that &lt;em&gt;Run 8&lt;/em&gt; is a labor of love, probably made by a very small studio; perhaps even by one person. It fulfills a niche; it&#39;s not a blockbuster. The game is proprietary, closed source, and under full control of this small studio. If anything happens to the studio, game development would cease, and the community would be left with just its game binaries. It would be the end of the road and a huge loss to the community of train enthusiasts. &lt;strong&gt;Is there a way to ensure the game&#39;s legacy and channel the community&#39;s enthusiasts into helping the game bloom?&lt;/strong&gt; Could we get more transparency into the roadmap? Could we gain access to the bug tracker? Could we contribute extensions to routes? Could the studio open the game&#39;s source code and encourage code contributions?&lt;/p&gt;
 &lt;p&gt;See you on the rails!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/2025-10-run8-on-linux/Run8-full-screen-game--night-train-passing-a-signal.png&quot; alt=&quot;Run8 full screen game -- night train passing a signal&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/run8-on-linux/Run8-full-screen-game--night-train-passing-a-signal.png&quot; alt=&quot;Run8 full screen game -- night train passing a signal&quot;&gt;&lt;/p&gt;
 &lt;h2&gt;my environment&lt;/h2&gt;
 &lt;pre&gt;&lt;code&gt;Operating System: NixOS 25.11 (unstable)
 KDE Plasma Version: 6.4.5
@@ -136,8 +136,8 @@ System Version: V560TU
 &lt;li&gt;Run8 v3 Update 22&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;em&gt;Run 8&lt;/em&gt; seems to run equally well when I configure the game to use &lt;em&gt;system Wine&lt;/em&gt; versus the &lt;em&gt;bundled Wine&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/2025-10-run8-on-linux/Lutris-runner-options--system-Wine.png&quot; alt=&quot;Lutris runner options with system Wine&quot;&gt;
-&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/2025-10-run8-on-linux/Lutris-runner-options--wine-ge-default.png&quot; alt=&quot;Lutris runner options with bundled Wine&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/run8-on-linux/Lutris-runner-options--system-Wine.png&quot; alt=&quot;Lutris runner options with system Wine&quot;&gt;
+&lt;img src=&quot;https://philipmw.github.io/blog/2025/10/run8-on-linux/Lutris-runner-options--wine-ge-default.png&quot; alt=&quot;Lutris runner options with bundled Wine&quot;&gt;&lt;/p&gt;
 </content>
   </entry>
   <entry>
