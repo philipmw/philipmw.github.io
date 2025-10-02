@@ -6,8 +6,8 @@
     <title>Philip in Seattle</title>
     <meta name="description" content="This is Philip&#39;s blog. Thanks for stopping by.">
     <link rel="alternate" href="/feed.atom" type="application/atom+xml" title="Philip in Seattle">
-    <link rel="icon" type="image/png" sizes="128x128" href="favicons/128x128.png">
-    <link rel="icon" type="image/png" sizes="180x180" href="favicons/180x180.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/favicons/128x128.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="/favicons/180x180.png">
     <meta name="generator" content="Eleventy v3.1.2">
     
     
@@ -131,10 +131,14 @@ a[href]:active {
 
 main,
 footer {
-	padding: 1rem;
+    padding: 1rem;
 }
 main :first-child {
 	margin-top: 0;
+}
+
+footer {
+    font-size: smaller;
 }
 
 header {
@@ -303,6 +307,7 @@ header {
 	<h2 class="visually-hidden">Top level navigation menu</h2>
 	<ul class="nav">
 	  <li class="nav-item"><a href="/blog/2020/08/covid-risk-tracking/"></a></li>
+	  <li class="nav-item"><a href="/blog/2025/10/2025-10-run8-on-linux/"></a></li>
 	  <li class="nav-item"><a href="/blog/"></a></li>
 	  <li class="nav-item"><a href="/" aria-current="page"></a></li>
 	  <li class="nav-item"><a href="/feed.atom"></a></li>
@@ -321,11 +326,15 @@ If you have comments about something you read here, please email me.</p>
 
 
 
-<h1>Latest 1 Post</h1>
+<h1>Latest 2 Posts</h1>
 
 
 
-<ol reversed="" class="postlist" style="--postlist-index: 2">
+<ol reversed="" class="postlist" style="--postlist-index: 3">
+	<li class="postlist-item">
+		<a href="/blog/2025/10/2025-10-run8-on-linux/" class="postlist-link">Run 8 on Linux</a>
+		<time class="postlist-date" datetime="2025-10-01">October 2025</time>
+	</li>
 	<li class="postlist-item">
 		<a href="/blog/2020/08/covid-risk-tracking/" class="postlist-link">Managing my COVID risk</a>
 		<time class="postlist-date" datetime="2020-08-10">August 2020</time>
@@ -341,7 +350,7 @@ If you have comments about something you read here, please email me.</p>
     </main>
 
     <footer>
-      <p><em>Built with <a href="https://www.11ty.dev/">Eleventy v3.1.2</a></em></p>
+      <p>Built with <a href="https://www.11ty.dev/">Eleventy v3.1.2</a>. All content produced myself, without the use of any LLM.</p>
     </footer>
   </body>
 </html>
