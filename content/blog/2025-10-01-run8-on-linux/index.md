@@ -1,6 +1,6 @@
 ---
 title: Run 8 on Linux
-date: 2025-10-01
+date: 2025-10-01T21:00-0800
 ---
 
 As a child, my parents would take me on trips to neighboring towns on an [elektrichka](https://en.wikipedia.org/wiki/Elektrichka), a commuter suburban electric train.
