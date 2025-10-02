@@ -116,10 +116,14 @@ a[href]:active {
 
 main,
 footer {
-	padding: 1rem;
+    padding: 1rem;
 }
 main :first-child {
 	margin-top: 0;
+}
+
+footer {
+    font-size: smaller;
 }
 
 header {
