@@ -76,6 +76,12 @@ body {
 img{
   max-width: 100%;
 }
+/* Center images in main content */
+main img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 img[width][height] {
   height: auto;
 }
