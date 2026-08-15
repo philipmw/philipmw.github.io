@@ -44,16 +44,15 @@ system directories are mounted as-is, and nothing else in the home directory is 
 Pi runs inside, and these mounts are all Pi could see.&lt;/p&gt;
 &lt;p&gt;You&#39;re not starting a virtual machine; you&#39;re not even starting a container. Startup time is imperceptible.
 Yet it adds a lot of security -- especially if you&#39;re not worried about state-level attacks -- with just a small shim.&lt;/p&gt;
-&lt;p&gt;It works great! It solved my problem of keeping my laptop&#39;s private files private from LLMs.
-I shared it with my friend Andreas, who adopted it. It worked great for coding.
-But soon I had a new use-case that I was reaching for frequently -- and the shortcomings showed.&lt;/p&gt;
-&lt;h2&gt;pain point: a single directory is too restrictive&lt;/h2&gt;
-&lt;p&gt;When I wanted to code, I&#39;d do:&lt;/p&gt;
+&lt;p&gt;It solved my problem of keeping my laptop&#39;s private files private from LLMs.
+I shared it with my friend Andreas, who adopted it. It worked great for coding:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;cd ~/Repos/nixpkgs
 pi-here
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now Pi sees the Nixpkgs repository at &lt;code&gt;/work&lt;/code&gt;, and it has free rein there. Good.&lt;/p&gt;
-&lt;p&gt;But sometimes, I wanted to edit documents - and ground my edits in the contents of other documents.
+&lt;p&gt;But soon I had a new use-case that I was reaching for frequently -- and the shortcomings showed.&lt;/p&gt;
+&lt;h2&gt;pain point: a single directory is too restrictive&lt;/h2&gt;
+&lt;p&gt;Sometimes, I wanted to edit documents - and ground my edits in the contents of other documents.
 Imagine revising a resume, grounded in career stories and my notes from a career book.
 Now, to match the &lt;code&gt;pi-here&lt;/code&gt; interface of opening in the present directory, I would create a &amp;quot;workshop&amp;quot; directory whose purpose was to be a temporary base camp for all the files I needed.
 I&#39;d have a runbook for myself:

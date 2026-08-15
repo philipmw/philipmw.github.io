@@ -541,16 +541,15 @@ system directories are mounted as-is, and nothing else in the home directory is 
 Pi runs inside, and these mounts are all Pi could see.</p>
 <p>You're not starting a virtual machine; you're not even starting a container. Startup time is imperceptible.
 Yet it adds a lot of security -- especially if you're not worried about state-level attacks -- with just a small shim.</p>
-<p>It works great! It solved my problem of keeping my laptop's private files private from LLMs.
-I shared it with my friend Andreas, who adopted it. It worked great for coding.
-But soon I had a new use-case that I was reaching for frequently -- and the shortcomings showed.</p>
-<h2>pain point: a single directory is too restrictive</h2>
-<p>When I wanted to code, I'd do:</p>
+<p>It solved my problem of keeping my laptop's private files private from LLMs.
+I shared it with my friend Andreas, who adopted it. It worked great for coding:</p>
 <pre><code>cd ~/Repos/nixpkgs
 pi-here
 </code></pre>
 <p>Now Pi sees the Nixpkgs repository at <code>/work</code>, and it has free rein there. Good.</p>
-<p>But sometimes, I wanted to edit documents - and ground my edits in the contents of other documents.
+<p>But soon I had a new use-case that I was reaching for frequently -- and the shortcomings showed.</p>
+<h2>pain point: a single directory is too restrictive</h2>
+<p>Sometimes, I wanted to edit documents - and ground my edits in the contents of other documents.
 Imagine revising a resume, grounded in career stories and my notes from a career book.
 Now, to match the <code>pi-here</code> interface of opening in the present directory, I would create a &quot;workshop&quot; directory whose purpose was to be a temporary base camp for all the files I needed.
 I'd have a runbook for myself:
