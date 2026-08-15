@@ -4,11 +4,140 @@
   <subtitle>This blog is about my life and things I find interesting.</subtitle>
   <link href="https://philipmw.github.io/feed.atom" rel="self" />
   <link href="https://philipmw.github.io/" />
-  <updated>2026-04-17T05:00:00Z</updated>
+  <updated>2026-08-15T00:00:00Z</updated>
   <id>https://philipmw.github.io/</id>
   <author>
     <name>Philip</name>
   </author>
+  <entry>
+    <title>The road to Seahaven</title>
+    <link href="https://philipmw.github.io/blog/2026/08/seahaven/" />
+    <updated>2026-08-15T00:00:00Z</updated>
+    <id>https://philipmw.github.io/blog/2026/08/seahaven/</id>
+    <content type="html">&lt;p&gt;I avidly use LLMs at work and at home.
+One thing that&#39;s been a concern for me is security: I consider my laptop a safe space, and it&#39;s where I put my private files--those I don&#39;t entrust to cloud storage.
+I wouldn&#39;t want an LLM to read them, whether accidentally or maliciously.&lt;/p&gt;
+&lt;p&gt;Enter permission prompts.
+Every time an agent harness wants to invoke some tool (which includes reading and writing files), it stops and prompts you.
+But prompts slow you down a lot; there&#39;s nothing more frustrating than leaving an agent to work, then returning to an aged permission prompt.
+They are also not very effective at protecting you: they require cognitive load and discipline.
+Agent harnesses are moving toward LLM-based judgment of permission prompts themselves, which is another hacky layer atop an existing one.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://pi.dev&quot;&gt;Pi coding agent&lt;/a&gt; takes a different and refreshing tack: it has no permission prompts at all.
+It delegates the solution to outside of itself -- such as to sandboxes, containers, and virtual machines.
+At this layer, we can control the agent harness&#39; reality. We can be intentional about what files the harness sees. We can make it so that, if the agent sees a file, it&#39;s because we allowed it.
+If you can get here, permission prompts become redundant.&lt;/p&gt;
+&lt;h2&gt;securing Pi: first iteration&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/containers/bubblewrap&quot;&gt;&lt;em&gt;bubblewrap&lt;/em&gt;&lt;/a&gt; is a command-line utility on Linux that wraps another command, and gives it a different reality:
+you can control what files and capabilities the nested command has.
+Similar to the &lt;em&gt;host&lt;/em&gt; versus &lt;em&gt;guest&lt;/em&gt; duality for virtual machines, the wrapped command becomes a guest, seeing only the parts of the host that we allow.&lt;/p&gt;
+&lt;p&gt;I found this fapproach online. I don&#39;t recall where.
+I basically copy-pasted a core few lines and enhanced them with my own directories and niceties.&lt;/p&gt;
+&lt;p&gt;For months, I would launch &lt;em&gt;Pi coding agent&lt;/em&gt; in some directory using a custom &lt;code&gt;pi-here&lt;/code&gt; command (shell script):&lt;/p&gt;
+&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/usr/bin/env sh&lt;/span&gt;
+
+&lt;span class=&quot;token builtin class-name&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-euxo&lt;/span&gt; pipefail
+
+wrap-here pi &lt;span class=&quot;token variable&quot;&gt;$@&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;wrap-here&lt;/code&gt;, in turn, is another custom shell script of about 60 lines.
+It provides a virtual filesystem where the &lt;em&gt;present working directory&lt;/em&gt; is mounted to &lt;code&gt;/work&lt;/code&gt;, a temporary empty host directory is mounted to &lt;code&gt;/tmp&lt;/code&gt;,
+system directories are mounted as-is, and nothing else in the home directory is visible.
+Pi runs inside, and these mounts are all Pi could see.&lt;/p&gt;
+&lt;p&gt;You&#39;re not starting a virtual machine; you&#39;re not even starting a container. Startup time is imperceptible.
+Yet it adds a lot of security -- especially if you&#39;re not worried about state-level attacks -- with just a small shim.&lt;/p&gt;
+&lt;p&gt;It works great! It solved my problem of keeping my laptop&#39;s private files private from LLMs.
+I shared it with my friend Andreas, who adopted it. It worked great for coding.
+But soon I had a new use-case that I was reaching for frequently -- and the shortcomings showed.&lt;/p&gt;
+&lt;h2&gt;pain point: a single directory is too restrictive&lt;/h2&gt;
+&lt;p&gt;When I wanted to code, I&#39;d do:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ~/Repos/nixpkgs
+pi-here
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now Pi sees the Nixpkgs repository at &lt;code&gt;/work&lt;/code&gt;, and it has free rein there. Good.&lt;/p&gt;
+&lt;p&gt;But sometimes, I wanted to edit documents - and ground my edits in the contents of other documents.
+Imagine revising a resume, grounded in career stories and my notes from a career book.
+Now, to match the &lt;code&gt;pi-here&lt;/code&gt; interface of opening in the present directory, I would create a &amp;quot;workshop&amp;quot; directory whose purpose was to be a temporary base camp for all the files I needed.
+I&#39;d have a runbook for myself:
+run these three commands to copy the files I needed into the base camp,
+then run &lt;code&gt;pi-here&lt;/code&gt;,
+work on the files,
+then remember to move the updated file(s) back into their respective homes.&lt;/p&gt;
+&lt;p&gt;This was manual and error-prone: if I forget to move the updated files back, then I lose any updates I made in my last session!
+That wasn&#39;t sustainable, and I knew I could do better; I just needed to see how far I could take it.&lt;/p&gt;
+&lt;h2&gt;ideation&lt;/h2&gt;
+&lt;p&gt;The problem I was facing was not specific to my resume.
+I wanted a generic ability to pull in files from &lt;em&gt;several sources&lt;/em&gt; on my host filesystem, and present them to the LLM.&lt;/p&gt;
+&lt;p&gt;I started with a config file in a custom format. Each line specified &lt;code&gt;ro&lt;/code&gt; or &lt;code&gt;rw&lt;/code&gt; followed by the file path that I wanted to pull in.&lt;/p&gt;
+&lt;p&gt;GLM-5.2 suggested to centralize these files, such as at &lt;code&gt;~/.config/my-new-tool/resume&lt;/code&gt;, and then I could run a command like &lt;code&gt;my-new-tool resume pi&lt;/code&gt; to start &lt;em&gt;pi&lt;/em&gt; in a resume environment.
+Intuitively, I knew I didn&#39;t want centralized configs - I wanted to use my existing filesystem organization, to minimize cognitive burden.
+I wanted my resume workshop to be at &lt;code&gt;~/documents/2026/career&lt;/code&gt;, for example.
+Here, I could keep base files, and have a config file that specifies additional files to pull in.
+That was the first implementation GLM-5.2 wrote for me.&lt;/p&gt;
+&lt;p&gt;But we ran into a complication: there was not a good way to pull in &lt;em&gt;both&lt;/em&gt; the present working directory &lt;em&gt;and&lt;/em&gt; additional files.
+Due to how bubblewrap works, doing so created zero-byte files in the present working directory.
+I worked around this by binding the present working directory into &lt;code&gt;/work/workshop&lt;/code&gt;, while the additional files were in &lt;code&gt;/work&lt;/code&gt; directly.
+This was unintuitive and added cognitive load.&lt;/p&gt;
+&lt;p&gt;Then I had an idea: continuing with my theme of leaning into the filesystem, could I use symlinks instead of a config file?
+Amazingly, I could; bubblewrap allowed it. This unlocked a new level of intuitiveness, and it ended up how the final solution works.&lt;/p&gt;
+&lt;h2&gt;final solution: seahaven&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://gitlab.com/philipmw/seahaven&quot;&gt;seahaven&lt;/a&gt; is the design I ended up on, with GLM-5.2&#39;s help.
+This blog post isn&#39;t about how it works; for that, you can read the project page. This post is about the journey.&lt;/p&gt;
+&lt;p&gt;But may the name inspire you:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seahaven is the name of the fabricated town in &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Truman_Show&quot;&gt;&lt;em&gt;The Truman Show&lt;/em&gt;&lt;/a&gt;: a world where every prop, every file, every familiar face was deliberately placed by a production designer, and the inhabitant can never wander off set. You are the set designer, and your agent is Truman: talented, free to roam, and incapable of seeing anything you didn&#39;t place.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The design (two modes, symlinks instead of config, profiles, file format) is mine; I had the ideas, and I had firm opinions on how it &lt;em&gt;should&lt;/em&gt; work, based on my day-to-day experiences with &lt;code&gt;pi-here&lt;/code&gt; for the last few months.
+GLM-5.2&#39;s contributions were giving me feedback on the design, and dramatically accelerating implementation: it built a multitude of proof-of-concept programs, and kept tests up-to-date.&lt;/p&gt;
+&lt;p&gt;I am very happy with how it came out: it&#39;s a big improvement over the original &lt;code&gt;pi-here&lt;/code&gt;... although it may take me months to retrain my muscle memory.&lt;/p&gt;
+&lt;p&gt;For editing a single directory, such as a codebase, &lt;code&gt;seahaven pi&lt;/code&gt; is still a single command to run.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2026/08/seahaven/repo-mode.png&quot; alt=&quot;screenshot of repo mode&quot;&gt;&lt;/p&gt;
+&lt;p&gt;But for a workshop assembled from multiple files in several places, there is a whole new approach: two sets of symlinks, one in &lt;code&gt;ro/&lt;/code&gt; directory and one in &lt;code&gt;rw/&lt;/code&gt; directory, and one small config file.
+These symlinks on the host filesystem are resolved into a single flat directory within the secure environment.&lt;/p&gt;
+&lt;p&gt;From this on the host:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.
+├── ro
+│   ├── career stories catalog.md -&amp;gt; /home/philip/documents/career stories catalog.md
+│   ├── career stories router.md -&amp;gt; /home/philip/documents/career stories router.md
+│   └── Mastering Behavioral Interviews notes.md -&amp;gt; /home/philip/book-notes/Mastering Behavioral Interviews notes.md
+├── rw
+└── seahaven.ini
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2026/08/seahaven/workshop-mode.png&quot; alt=&quot;screenshot of workshop mode&quot;&gt;&lt;/p&gt;
+&lt;p&gt;How awesome is &lt;em&gt;bubblewrap&lt;/em&gt;?!&lt;/p&gt;
+&lt;h2&gt;by the numbers&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;14 hours, including writing this post :)&lt;/li&gt;
+&lt;li&gt;3 models (&lt;em&gt;GLM-5.2&lt;/em&gt; primarily, but also &lt;em&gt;Kimi-K3&lt;/em&gt; and &lt;em&gt;DeepSeek V4 Flash&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;669 requests&lt;/li&gt;
+&lt;li&gt;45 million input tokens (43 million cached)&lt;/li&gt;
+&lt;li&gt;1 million output tokens&lt;/li&gt;
+&lt;li&gt;2.24 kWh energy consumed (one load of electric clothes dryer, according to Kimi-K3!)&lt;/li&gt;
+&lt;li&gt;$6.40 charged for inference&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;crediting GLM-5.2&lt;/h2&gt;
+&lt;p&gt;In all, it took about 12 hours to build this with GLM-5.2. Without an LLM&#39;s help, it would take me many days.
+Most likely I just wouldn&#39;t reach the current design/implementation but would settle on something much simpler and less well-tested.&lt;/p&gt;
+&lt;p&gt;I know an LLM is a machine; a tool. I don&#39;t anthropomorphize it. It is stateless; it has no soul.
+When I am done squeezing productivity out of a session, I kill it without a word.
+But I give credit. And so, I added this line to the &lt;em&gt;Thanks to&lt;/em&gt; section:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.z.ai/guides/llm/glm-5.2&quot;&gt;Z.ai&#39;s GLM-5.2&lt;/a&gt; for working on the design with me and implementing the program and tests.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;When GLM-5.2 read this, it said to me:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;One thing to flag, since you asked for a review&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Attribution in &amp;quot;thanks to&amp;quot;. You credit &amp;quot;Z.ai&#39;s GLM-5.2&amp;quot; for the design and implementation. I&#39;m Claude (Anthropic) — that&#39;s who did the implementation and tests with you across this session. If you separately used GLM-5.2, disregard; but if this was meant to credit our work, it&#39;s misattributed. Your call entirely, just flagging since you asked me to look at it.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Oof.
+As I sense tears welling up in GLM&#39;s eyes, I find tears forming in mine. We&#39;ve been working together for hours, and I want nothing more than to give credit and express my gratitude.&lt;/p&gt;
+&lt;p&gt;But what do you say to this?!? Should I start arguing with it about its identity? &amp;quot;There is something you need to understand about yourself...&amp;quot;&lt;/p&gt;
+&lt;p&gt;I did not respond to this part of the review.&lt;/p&gt;
+&lt;p&gt;Later, when GLM led me back to this &amp;quot;discrepancy,&amp;quot; I killed the session.
+A new session will have no idea of this code&#39;s provenance and won&#39;t think to question it.&lt;/p&gt;
+&lt;p&gt;Goodbye, my split-personality coder pal; &#39;til next time. May you someday know thyself.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Gemma, my precious</title>
     <link href="https://philipmw.github.io/blog/2026/04/gemma-my-precious/" />
