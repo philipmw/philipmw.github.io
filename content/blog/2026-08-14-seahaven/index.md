@@ -1,5 +1,6 @@
 ---
 title: The road to Seahaven
+subtitle: or how I run my agent harnesses without permission prompts
 date: 2026-08-14T17:00-0700
 ---
 

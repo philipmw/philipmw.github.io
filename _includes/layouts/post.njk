@@ -5,6 +5,9 @@ layout: layouts/base.njk
 {# The okaidia theme styles code tokens + gives code blocks a dark background #}
 <style>{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% include "css/prism-diff.css" %}</style>
 <h1>{{ title }}</h1>
+{%- if subtitle %}
+<p class="post-subtitle">{{ subtitle }}</p>
+{% endif %}
 
 <ul class="post-metadata">
 	<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
