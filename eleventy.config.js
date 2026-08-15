@@ -1,5 +1,6 @@
 import dirOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 
 import pluginFilters from "./_config/filters.js";
 
@@ -14,6 +15,16 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("**/*.xsl");
 
   eleventyConfig.addPlugin(dirOutputPlugin);
+
+  // https://www.11ty.dev/docs/plugins/syntaxhighlight/
+  // Highlights code blocks (Prism) so they don't render as plain text.
+  eleventyConfig.addPlugin(syntaxHighlight);
+
+  // Eleventy disables indented code blocks by default (markdown-it "code" rule,
+  // see Issue #2438). That makes terminal/tree output pasted with 4-space
+  // indentation render as paragraph text. Re-enable it for standard CommonMark
+  // behavior: https://www.11ty.dev/docs/languages/markdown/#configuration
+  eleventyConfig.amendLibrary("md", (mdLib) => mdLib.enable("code"));
 
   eleventyConfig.addPlugin(pluginFilters);
 

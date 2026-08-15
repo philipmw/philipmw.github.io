@@ -25,8 +25,7 @@
     <style>/* This is an arbitrary CSS string added to the bundle */</style>
     {#- Add the contents of a file to the bundle #}
     <style>{% include "css/index.css" %}</style>
-    {#- Or you can add from node_modules #}
-    {# <style>{% include "node_modules/prismjs/themes/prism-okaidia.css" %}</style> #}
+    {#- Or you can add from node_modules (the Prism theme lives in the post bundle, see layouts/post.njk) #}
 
     {#- Render the CSS bundle using inlined CSS (for the fastest site performance in production) #}
     <style>{% getBundle "css" %}</style>

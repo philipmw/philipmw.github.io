@@ -2,7 +2,8 @@
 layout: layouts/base.njk
 ---
 {# Only include the syntax highlighter CSS on blog posts, included with the CSS per-page bundle #}
-<style>{% include "css/prism-diff.css" %}</style>
+{# The okaidia theme styles code tokens + gives code blocks a dark background #}
+<style>{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% include "css/prism-diff.css" %}</style>
 <h1>{{ title }}</h1>
 
 <ul class="post-metadata">
