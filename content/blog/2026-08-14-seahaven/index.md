@@ -46,20 +46,19 @@ Pi runs inside, and these mounts are all Pi could see.
 You're not starting a virtual machine; you're not even starting a container. Startup time is imperceptible.
 Yet it adds a lot of security -- especially if you're not worried about state-level attacks -- with just a small shim.
 
-It works great! It solved my problem of keeping my laptop's private files private from LLMs.
-I shared it with my friend Andreas, who adopted it. It worked great for coding.
-But soon I had a new use-case that I was reaching for frequently -- and the shortcomings showed.
-
-## pain point: a single directory is too restrictive
-
-When I wanted to code, I'd do:
+It solved my problem of keeping my laptop's private files private from LLMs.
+I shared it with my friend Andreas, who adopted it. It worked great for coding:
 
     cd ~/Repos/nixpkgs
     pi-here
 
 Now Pi sees the Nixpkgs repository at `/work`, and it has free rein there. Good.
 
-But sometimes, I wanted to edit documents - and ground my edits in the contents of other documents.
+But soon I had a new use-case that I was reaching for frequently -- and the shortcomings showed.
+
+## pain point: a single directory is too restrictive
+
+Sometimes, I wanted to edit documents - and ground my edits in the contents of other documents.
 Imagine revising a resume, grounded in career stories and my notes from a career book.
 Now, to match the `pi-here` interface of opening in the present directory, I would create a "workshop" directory whose purpose was to be a temporary base camp for all the files I needed.
 I'd have a runbook for myself:
