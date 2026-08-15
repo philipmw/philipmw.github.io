@@ -87,7 +87,7 @@ This blog post isn&#39;t about how it works; for that, you can read the project 
 &lt;/blockquote&gt;
 &lt;p&gt;The design (two modes, symlinks instead of config, profiles, file format) is mine; I had the ideas, and I had firm opinions on how it &lt;em&gt;should&lt;/em&gt; work, based on my day-to-day experiences with &lt;code&gt;pi-here&lt;/code&gt; for the last few months.
 GLM-5.2&#39;s contributions were giving me feedback on the design, and dramatically accelerating implementation: it built a multitude of proof-of-concept programs, and kept tests up-to-date.&lt;/p&gt;
-&lt;p&gt;I am very happy with how it came out: it&#39;s a big improvement over the original &lt;code&gt;pi-here&lt;/code&gt;... although it may take me months to retrain my muscle memory.&lt;/p&gt;
+&lt;p&gt;From the original 60 lines of logic and no tests, the project grew to 320 lines of logic and 770 lines of tests.&lt;/p&gt;
 &lt;p&gt;For editing a single directory, such as a codebase, &lt;code&gt;seahaven pi&lt;/code&gt; is still a single command to run.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2026/08/seahaven/repo-mode.png&quot; alt=&quot;screenshot of repo mode&quot;&gt;&lt;/p&gt;
 &lt;p&gt;But for a workshop assembled from multiple files in several places, there is a whole new approach: two sets of symlinks, one in &lt;code&gt;ro/&lt;/code&gt; directory and one in &lt;code&gt;rw/&lt;/code&gt; directory, and one small config file.
@@ -103,7 +103,8 @@ These symlinks on the host filesystem are resolved into a single flat directory 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://philipmw.github.io/blog/2026/08/seahaven/workshop-mode.png&quot; alt=&quot;screenshot of workshop mode&quot;&gt;&lt;/p&gt;
-&lt;p&gt;How awesome is &lt;em&gt;bubblewrap&lt;/em&gt;?!&lt;/p&gt;
+&lt;p&gt;How awesome is &lt;em&gt;bubblewrap&lt;/em&gt;?!
+I am very happy with how it came out: it&#39;s a big improvement over the original &lt;code&gt;pi-here&lt;/code&gt;... although it may take me months to retrain my muscle memory.&lt;/p&gt;
 &lt;h2&gt;by the numbers&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;14 hours, including writing this post :)&lt;/li&gt;
