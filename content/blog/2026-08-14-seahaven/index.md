@@ -103,7 +103,7 @@ But may the name inspire you:
 The design (two modes, symlinks instead of config, profiles, file format) is mine; I had the ideas, and I had firm opinions on how it *should* work, based on my day-to-day experiences with `pi-here` for the last few months.
 GLM-5.2's contributions were giving me feedback on the design, and dramatically accelerating implementation: it built a multitude of proof-of-concept programs, and kept tests up-to-date.
 
-I am very happy with how it came out: it's a big improvement over the original `pi-here`... although it may take me months to retrain my muscle memory.
+From the original 60 lines of logic and no tests, the project grew to 320 lines of logic and 770 lines of tests.
 
 For editing a single directory, such as a codebase, `seahaven pi` is still a single command to run.
 
@@ -127,6 +127,7 @@ To:
 ![screenshot of workshop mode](workshop-mode.png)
 
 How awesome is *bubblewrap*?!
+I am very happy with how it came out: it's a big improvement over the original `pi-here`... although it may take me months to retrain my muscle memory.
 
 ## by the numbers
 
