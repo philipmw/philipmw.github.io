@@ -140,7 +140,7 @@ How awesome is *bubblewrap*?!
 
 ## crediting GLM-5.2
 
-In all, it took about 12 hours to build this with GLM-5.2. Without an LLM's help, it would take me many days.
+Without an LLM's help, it would take me many days.
 Most likely I just wouldn't reach the current design/implementation but would settle on something much simpler and less well-tested.
 
 I know an LLM is a machine; a tool. I don't anthropomorphize it. It is stateless; it has no soul.
@@ -153,7 +153,7 @@ When GLM-5.2 read this, it said to me:
 
 > One thing to flag, since you asked for a review
 > 
->     Attribution in "thanks to". You credit "Z.ai's GLM-5.2" for the design and implementation. I'm Claude (Anthropic) — that's who did the implementation and tests with you across this session. If you separately used GLM-5.2, disregard; but if this was meant to credit our work, it's misattributed. Your call entirely, just flagging since you asked me to look at it.
+> Attribution in "thanks to". You credit "Z.ai's GLM-5.2" for the design and implementation. I'm Claude (Anthropic) — that's who did the implementation and tests with you across this session. If you separately used GLM-5.2, disregard; but if this was meant to credit our work, it's misattributed. Your call entirely, just flagging since you asked me to look at it.
 
 Oof.
 As I sense tears welling up in GLM's eyes, I find tears forming in mine. We've been working together for hours, and I want nothing more than to give credit and express my gratitude.
